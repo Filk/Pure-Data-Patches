@@ -1,0 +1,61 @@
+#N canvas 528 58 779 586 10;
+#X obj 157 46 adc~;
+#X obj 157 90 *~;
+#X obj 190 91 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 34 190 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 33 154 - 100;
+#X obj 33 126 env~;
+#X obj 158 125 bonk~;
+#X obj 185 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 220 154 unpack 0 f f;
+#X floatatom 176 192 5 0 0 0 - - -, f 5;
+#X text 322 88 low and high threshold (é necessário experimentar
+e ajustar);
+#X obj 207 411 readsf~ 2;
+#X obj 247 313 openpanel;
+#X obj 175 275 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 205 350 10 0 0 0 - - -, f 10;
+#X msg 204 378 open \$1 \, start;
+#X obj 246 287 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 145 438 nbx 5 14 0 0.9 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.9 256;
+#X obj 142 379 loadbang;
+#X obj 207 472 *~;
+#X msg 144 407 0.9;
+#X obj 208 515 dac~;
+#X obj 236 473 *~;
+#X msg 226 87 thresh 1.5 100;
+#X obj 176 219 > 400;
+#X obj 175 246 sel 1;
+#X floatatom 217 219 5 0 0 0 - - -, f 5;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 1;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 1 7 0;
+#X connect 6 1 8 0;
+#X connect 8 1 9 0;
+#X connect 9 0 24 0;
+#X connect 11 0 19 0;
+#X connect 11 1 22 0;
+#X connect 12 0 14 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 11 0;
+#X connect 16 0 12 0;
+#X connect 17 0 19 1;
+#X connect 17 0 22 1;
+#X connect 18 0 20 0;
+#X connect 19 0 21 0;
+#X connect 20 0 17 0;
+#X connect 22 0 21 1;
+#X connect 23 0 6 0;
+#X connect 24 0 25 0;
+#X connect 25 0 13 0;
+#X connect 26 0 24 1;

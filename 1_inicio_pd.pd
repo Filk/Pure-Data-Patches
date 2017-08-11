@@ -1,0 +1,92 @@
+#N canvas 161 60 1169 788 10;
+#X obj 669 104 metro 500;
+#X obj 670 161 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 708 59 5 0 0 0 - - -, f 5;
+#X obj 40 32 metro 500;
+#X msg 39 63 bang;
+#X text 104 32 isto é um objecto "metro" com argumento inicial "500"
+ms;
+#X text 104 63 isto é uma caixa de mensagem;
+#X floatatom 39 97 5 0 0 0 - - -, f 5;
+#X text 102 92 isto é uma caixa de número: no pd todos os números
+são "float" \, i.e. \, números com casa decimais;
+#X obj 37 154 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 38 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 39 221 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 41 372 5 0 0 0 - - -, f 5;
+#X text 101 144 isto é um bang \, envia a mensagem "bang" que \, em
+pd \, significa: faz o que quer que tenhas a fazer;
+#X text 104 267 isto é um vslider \, um controlo vertical que envia
+números de 0 a 127 (inclusivé) \, isto é 7 bit -> MIDI;
+#X obj 665 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 103 190 toggle: é um objecto que envia ora "0" ora "1" \,
+i.e. \, off/on (a única razão para estar ligado ao slider é para
+mostrar que no pd quase todas as mensagens são números que podem
+ser ligados a qualquer outro objecto.;
+#X floatatom 671 213 5 0 0 0 - - -, f 5;
+#X text 711 213 bpm;
+#X obj 671 242 / 60;
+#X obj 932 165 + 1;
+#X obj 933 195 - 0.56;
+#X obj 935 230 * 7;
+#X obj 677 365 / 1;
+#X text 803 287 define a ordem de execução;
+#X floatatom 675 402 5 0 0 0 - - -, f 5;
+#X obj 675 287 trigger bang float;
+#X msg 668 336 1000;
+#X obj 633 435 metro 500;
+#X obj 630 401 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 734 581 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 712 235 / 60 pq 1 minuto = 60 segundos resultado é batidas
+por segundo;
+#X text 724 355 1000 ms / batidas por segundo resultado é o número
+de ms por batida;
+#X obj 644 683 noteout;
+#X msg 737 612 80 120 1;
+#X obj 544 586 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 547 617 100 120 1;
+#X obj 633 536 select 0 2;
+#X obj 636 586 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 639 617 90 120 1;
+#X text 726 521 se input == 0 \, bang na 1ª saída \; se input ==
+2 \, bang na 2ª saída \; se não \, o próprio input sai pela 3ª
+saída;
+#X text 714 681 saída MIDI (sintetizador externo);
+#X text 807 604 envia nota midi #(100 \, 90 ou 80) com velocidade 120
+pelo canal midi 1;
+#X obj 634 464 random 3;
+#X text 718 464 escolhe aleatoriamente un número entre 0 a 2 (inclusivé)
+;
+#X connect 0 0 1 0;
+#X connect 2 0 0 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 15 0 0 0;
+#X connect 17 0 19 0;
+#X connect 19 0 26 0;
+#X connect 23 0 25 0;
+#X connect 25 0 28 1;
+#X connect 26 0 27 0;
+#X connect 26 1 23 1;
+#X connect 27 0 23 0;
+#X connect 28 0 43 0;
+#X connect 29 0 28 0;
+#X connect 30 0 34 0;
+#X connect 34 0 33 0;
+#X connect 35 0 36 0;
+#X connect 36 0 33 0;
+#X connect 37 0 35 0;
+#X connect 37 1 38 0;
+#X connect 37 2 30 0;
+#X connect 38 0 39 0;
+#X connect 39 0 33 0;
+#X connect 43 0 37 0;

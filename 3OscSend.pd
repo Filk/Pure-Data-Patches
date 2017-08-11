@@ -1,0 +1,10 @@
+#N canvas 35 24 440 167 10;
+#X msg 267 47 send foo \$1;
+#X floatatom 267 20 0 0 0 0 - - -;
+#X msg 188 21 disconnect;
+#X obj 38 102 netsend;
+#X msg 38 21 connect localhost 3000;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 4 0 3 0;
